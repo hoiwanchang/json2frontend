@@ -28,6 +28,34 @@ AI agents use this spec to write real, working frontend code without guessing at
 
 ## Installation
 
+### OpenClaw / ClawHub
+
+This package is published as an OpenClaw skill on [ClawHub](https://clawhub.ai). Install it directly from within OpenClaw:
+
+```bash
+clawhub install json2frontend
+```
+
+Then register the MCP server in your OpenClaw configuration:
+
+```json
+{
+  "mcpServers": {
+    "json2frontend": {
+      "command": "json2frontend"
+    }
+  }
+}
+```
+
+### npm (global)
+
+```bash
+npm install -g json2frontend
+```
+
+### From source
+
 ```bash
 npm install
 npm run build
@@ -37,7 +65,32 @@ npm run build
 
 ### As an MCP server (stdio transport)
 
-Add this server to your MCP client configuration (e.g. Claude Desktop, GitHub Copilot MCP, etc.):
+Add this server to your MCP client configuration (e.g. Claude Desktop, GitHub Copilot MCP, OpenClaw, etc.):
+
+```json
+{
+  "mcpServers": {
+    "json2frontend": {
+      "command": "json2frontend"
+    }
+  }
+}
+```
+
+Or run on-demand via `npx` (no global install required):
+
+```json
+{
+  "mcpServers": {
+    "json2frontend": {
+      "command": "npx",
+      "args": ["-y", "json2frontend"]
+    }
+  }
+}
+```
+
+Or by path if running from source:
 
 ```json
 {
